@@ -1,0 +1,14 @@
+{
+  "name": "chat_room",
+  "version": "1.0.0",
+  "main": "little_sister.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node little_sister.js"
+  },
+   "dependencies": {
+    "socket.io-client": "0.9.6"
+  },
+  "author": "Isaac Fernandez",
+  "license": "MIT"
+}

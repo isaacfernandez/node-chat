@@ -1,0 +1,138 @@
+<!--NOTE: this game is solely made by 
+Isaac Fernandez and Cyril Caesar for recreational demonstration 
+of our programming skills, though we give a hat-tip to 
+Orteil at http://orteil.dashnet.org/cookieclicker/
+for inspiration and ideas :D
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>	All hail Seagrams! </title>
+
+<link href = "Seagrams.css" rel = "stylesheet" type = "text/css">
+<script src="jquery/json2.js" type="text/javscript"></script>
+<script src="jquery/jquery.min.js"></script>
+<script src="jquery/easeljs-0.6.0.min.js"></script>
+<script src="jquery/jstorage.js" type="text/javascript"></script> 
+<script src="jquery/javascriptMainCode.js"></script>
+</head>
+<body onload="init();">
+<div class = "everything" unselectable='on' onselectstart='return false;' onmousedown='return false;'>
+	<div class = "left">
+		<div class="sodaCounter"></div>
+		<div id="seagramMain">
+		</div>
+	</div>
+	<div class = "center">
+	<div id = "centermini">
+	<div id = "menutag"> Menu </div>
+	<div id = "statstag"> Stats </div>
+	<p id ="newsReel">
+		Lorem ipsum dolor sit amet, cit.
+	</p>
+	</div>
+	<div class="visualize" id="visualBoard">
+	<!--testing testing testing-->
+	<div id = "poorStudentCanvas" style="border:none;border-bottom: solid black 10px;">
+		<div id="stats">asdad</div>
+	</div>
+	<div id = "programmerCanvas"style="border:none;border-bottom: solid black 10px;">
+		<div id="stats">asdad</div>
+	</div>
+	<div id = "vendingMachineCanvas"style="border:none;border-bottom: solid black 10px;" >
+		<div id="stats">asdad</div>
+	</div>
+	<div id = "factoryCanvas"style="border:none;border-bottom: solid black 10px;">
+		<div id="stats">asdad</div>
+	</div>
+	</div>
+	
+	<div class = "menu">
+
+	<div id ="xtag">&#88;</div>
+		<center style = "font-size: 28px; font-family: 'Kavoon', Georgia,serif">Menu</center>	
+		<p style = "color: white; font-size: 22px; font-family: 'Kavoon', Georgia,serif;margin-top: 50px;">General</p>
+		<hr size ="1px">
+		<p style = "color: darkgray; font-size: 12px; line-height: 1em">
+		<input type="button" value="Save"><u>Save manually (the game autosaves every sixty seconds)</u>
+		<br><input type="button" value="Export Save"><input type="button" value="Import Save"><u>You can use this to backup your save or to transfer it to another computer</u>
+		<br><input type="button" value="Reset" style="border-color:red;color:red" onclick="resetGame()"><u>Reset your game (you will keep your achievements)</u>
+		<br><input type="button" value="Wipe save" style="border-color:red;color:red" onclick="resetGame()"><u>Delete all your progress, including your achievements and prestige</u>
+		</p>
+		<p style = "color: white; font-size: 22px; font-family: 'Kavoon', Georgia,serif;margin-top: 20px">Settings</p>
+		<hr size ="1px">
+		<p style = "color: darkgray;  font-size: 12px; line-height: 1em">
+			<input type="button" value="Fancy graphics OFF">
+			<input type="button" value="Particles OFF">
+			<br><input id="numberSwitch" type="button" value="Numbers OFF" onclick="toggleNumberFloatOnOff()">
+			<input type="button" value="Milk OFF">
+			<br><input type="button" value="Offline mode ON"><u>(note : this disables update notifications)</u>
+		</p>	
+	</div>
+	<div class = "stats">
+	<div id ="xtag">&#88;</div>
+		<center style = "font-size: 28px; font-family: 'Kavoon', Georgia,serif;">Statistics</center>			
+		<p style = "color: white; font-size: 22px; font-family: 'Kavoon', Georgia,serif;margin-top: 50px;">General</p>
+		<hr size ="1px">
+		<p style = "color: darkgray" id="statsStuff1"></p>
+		
+		<p style = "color: white; font-size: 22px; font-family: 'Kavoon', Georgia,serif;margin-top: 50px;">Upgrades unlocked</p>
+		<hr size ="1px">
+		
+		<p style = "color: white; font-size: 22px; font-family: 'Kavoon', Georgia,serif;margin-top: 50px;">Achievements</p>
+		<hr size ="1px">
+	</div>
+	</div>
+	
+	<div class="right">
+	<div id ="storebar">
+	<ul>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+	</div>
+	<div id="shopBar">
+		<div id="poorStudent" class="item">
+		<ul>
+			<li><p>Poor Student</p>
+			<span></span><br>This is a poor student. He gathers chump change and buys more cans.</li>
+		</ul>
+		
+		<div id="poorStudentCost"> 15 </div>
+	</div>
+	<div id="programmer" class="item">
+		<ul>
+			<li><p>Programmer</p>
+			<span></span><br>These guys spend everything they have for the green gold.</li>
+		</ul>
+		
+		<div id="programmerCost"> 15 </div>
+	</div>
+	<div id="vendingMachine" class="item">
+		<ul>
+			<li><p>Vending Machine</p>
+			<span></span><br>You can cut out the middle man and just get your own vending machine.</li>
+		</ul>
+
+		<div id="vendingMachineCost"> 15 </div>
+	</div>
+	<div id="factory" class="item">
+		<ul>
+			<li><p>Factory</p>
+			<span></span><br>Entire buildings full of thirsty programmer nerds</li>
+		</ul>
+
+		<div id="factoryCost"> 15 </div>
+	</div>
+	<br>
+</div>
+
+<span id="dummy"></span>
+<img id="scream" src="pics/seagram2.png" alt="The Scream" width="2" height="2">
+
+</body>
+</html>

@@ -1,0 +1,78 @@
+import javax.swing.*;
+
+import java.awt.event.*;
+import java.awt.*;
+
+
+public class Triangle implements ActionListener {
+
+	private JFrame frame;
+	
+	private JLabel sideA, sideB, sideC;
+	private JTextField a, b, c;
+	private JButton calc, exit;
+	
+	public Triangle() {
+		frame = new JFrame("Right Triangle");
+		frame.setLayout( new GridLayout(4,2 ) );
+		//Really simple layout stuff. Make everything
+		sideA = new JLabel(" Side A ");
+		sideB = new JLabel(" Side B ");
+		sideC = new JLabel(" Side C ");
+		
+		a = new JTextField("0");
+		b = new JTextField("0");
+		c = new JTextField("0");
+		
+		//add buttons and their command codes
+		calc = new JButton("Calculate");
+			calc.addActionListener(this);
+			calc.setActionCommand("c");
+		exit = new JButton("exit");
+			exit.addActionListener(this);
+			exit.setActionCommand("e");	
+			
+			//then add them in [LABEL][FIELD] order
+		frame.add(sideA);
+			frame.add(a);
+		frame.add(sideB);
+			frame.add(b);
+		frame.add(sideC);
+			frame.add(c);
+		frame.add(calc);
+		frame.add(exit);
+		
+		frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
+		frame.setSize(300,300);
+		frame.pack();
+		frame.setVisible(true);
+	}
+	
+	private void Calculate(String a, String b) {
+		//we parse into ints because TextFields give us strings
+		int pA = Integer.parseInt(a);
+		int pB = Integer.parseInt(b);
+		//Two things going on, first off √(a^2) + (b^2), the pythagorean theorem
+		//Then we set the text, adding ""+ to concat the other number into a string
+		c.setText("" + Math.sqrt( Math.pow(pA, 2) + Math.pow(pB, 2)  )  );
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		new Triangle();
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		//If they hit e, we exit. Otherwise, we get to calculatin'
+		if (e.getActionCommand().equals("e") ) {
+			System.exit(0);
+		}
+		else {
+			this.Calculate( a.getText() , b.getText() );
+		}
+		
+		
+	}
+
+}

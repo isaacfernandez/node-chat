@@ -1,0 +1,95 @@
+import javax.swing.*;
+import java.awt.event.*;
+import java.awt.*;
+
+
+//'Close enough' approach to the form. To 'center' headers, you can use to labels.
+
+public class Test implements ActionListener {
+
+	private JFrame mainFrame;
+	private JButton b1, b2;
+	private JTextField t1, t2, t3, t4;
+	private JLabel l1, l2, titleLable, titleLable2, l3, l4, l5;
+	private JPasswordField SS;
+	
+	public Test(){
+		mainFrame = new JFrame(); //Creates the window
+		mainFrame.setLayout(  new GridLayout(8 , 2, 15, 15 )  ); //Set up the layout, grid style
+		//^ The second set of parameters on GridLayout pads things out so they aren't too close
+		mainFrame.setSize(300,300); //Default size, gets read of needing to resize the window
+		titleLable = new JLabel("Submission Form");
+		titleLable2 = new JLabel("Chapter 15 starter Assignment");
+		
+		b1 = new JButton("Enter"); //Create the button and set its text
+			b1.addActionListener(this); //Add the click listener to the command
+			b1.setActionCommand("enter"); //Add what this "says" to the click listener when its clicked
+		b2 = new JButton("Clear");
+			b2.addActionListener(this);
+			b2.setActionCommand("clear");
+			
+		t1 = new JTextField("Enter Name"); //Similar to the button, we set the default text
+		l1 = new JLabel("Name"); //All this is is a label. 
+		SS = new JPasswordField();
+		l2 = new JLabel("SS");
+		
+		l3 = new JLabel("Address");
+		l4 = new JLabel("State");
+		l5 = new JLabel("Phone Number");
+		t2 = new JTextField("Address");
+		t3 = new JTextField("State");
+		t4 = new JTextField("Phone Number");
+		
+		
+		mainFrame.add(titleLable);
+		mainFrame.add(titleLable2);
+		
+		mainFrame.add(l1);
+			mainFrame.add(t1); //In this order,we end up having [LABEL] [ENTRY FIELD]
+		mainFrame.add(l2);
+			mainFrame.add(SS);
+		mainFrame.add(l3);
+			mainFrame.add(t2);
+		mainFrame.add(l4);
+			mainFrame.add(t3);
+		mainFrame.add(l5);
+			mainFrame.add(t4);
+			
+		mainFrame.add(b1); //and we add the buttons so they end up in the button
+		mainFrame.add(b2);
+		
+		mainFrame.pack();
+		mainFrame.setDefaultLookAndFeelDecorated(true);
+		mainFrame.setVisible(true); //Make the window visible
+		mainFrame.setDefaultCloseOperation(mainFrame.EXIT_ON_CLOSE); //And make it close when the X is clicked
+		
+	}
+	
+	
+	public static void main(String[] args) {
+		new Test(); //Instantiate
+	}
+
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		//Too lazy to update to 1.7 to make this a switch case
+		String ac =  e.getActionCommand(); //Allows us to distinguish what button was clicked
+		
+		
+		//Change these things to put these things where htey have to be sent. All accesed via t1.getText() or t2. , etc
+		if (ac.equals("enter")) {
+			//System out print: basic stuff
+			//t1.getText() : what it says. It gets the text from the t1 field
+			//pwd -> getPassword : Ditto. However, it returns it as a char[] array, not a string
+			//new String ( pwd.getPassword() ) : is the step we take to go from char[] to string
+			System.out.println("Name : " + t1.getText() + " passwordd: " +  new String(SS.getPassword()));
+		} else if (ac.equals("clear")) {
+			t1.setText("");
+			SS.setText(""); //Clears out the values on both
+		}
+		
+		
+	}
+
+}

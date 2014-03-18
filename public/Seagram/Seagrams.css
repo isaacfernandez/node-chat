@@ -1,0 +1,275 @@
+*{	margin:0px;
+	padding:0px;}
+
+body{
+	background-image: url("pics/Seagrams2.png");
+	background-size: 200px;
+	overflow-y: hidden;
+}
+
+@font-face{
+src: url("Kavoon/Kavoon-Regular.ttf");
+font-family: Kavoon;
+}
+
+.everything{
+    white-space: nowrap;
+    height: 100%;
+	overflow-x: hidden;
+	overflow-y: hidden;
+	-moz-user-select: none; 
+	-webkit-user-select: none;
+	-ms-user-select:none;
+	user-select:none;
+	font-family:Tahoma,Arial,sans-serif;
+}
+
+.left, .center, .right{
+	vertical-align: top;
+	display: inline-block;
+	height: 1000px;
+	border-right: solid black 15px;
+	width: 325px;
+	margin-left: -5px;
+}
+
+.left{
+	min-width: 200px;
+	width: 30%;
+	text-align: center;
+}
+
+.center{
+	min-width: 325px;
+	width: 43%;
+	overflow-y: scroll;
+}
+
+.right{
+	border: none;
+	width: 346px;
+	overflow-y: scroll;
+}
+
+#seagramMain{
+	background-image:url('pics/seagram2.png');
+	background-size: 100% 100%;
+	background-origin:border-box;
+	margin:100px auto;
+	transition:height .3s, width .3s, margin-left .3s;
+	/*height:300px;*/
+	margin-top: -5px;
+	height: 300px;
+	width: 200px;
+	cursor: pointer;
+}
+
+.sodaCounter{
+	background: rgba(0, 0, 0, 0.6);
+	padding-top: 10px;
+	padding-bottom: 10px;
+	text-align: center;
+	-moz-user-select: none; 
+	-webkit-user-select: none;
+	-ms-user-select:none;
+	user-select:none;
+	height: 40px;
+	overflow: hidden;
+	color: #fff;
+	font-family: 'Kavoon', Georgia,serif;
+	font-size: 18px;
+	text-shadow: 0px 0px 4px #000;
+	margin-top: 100px;
+}
+
+#poorStudentCanvas, #programmerCanvas, #vendingMachineCanvas, #factoryCanvas{
+	width: 100%;
+	height	: 150px;
+	margin: 0 auto;
+	display: none;
+	margin-top: -3px;
+	color: white;
+	border: solid white 1px;
+	overflow-y:hidden;
+	overflow-x:scroll;
+	white-space: nowrap;
+	background-color:grey;
+}
+
+#stats{
+	height:150px;
+	width:250px;
+	position:absolute;
+	opacity:0.0;
+	background-color:black;
+	transition: opacity .5s;
+}
+
+#poorStudentCanvas:hover #stats, #programmerCanvas:hover #stats, #vendingMachineCanvas:hover #stats, #factoryCanvas:hover #stats{
+	opacity:0.8;
+}
+
+.menu, .stats, .visualize{
+	height:100%;
+	width: 100%-10px;
+	padding: 10px;
+	font-size: 18px;
+	white-space: normal;
+	color: #fff;
+	font-size: 15px;
+	overflow-x: hidden;
+}
+
+.visualize{
+	margin-top: -10px;
+	width: 100%;
+	margin-left: -10px;
+}
+
+.menu, .stats{
+	background-image: url("pics/chalky.png");
+	display: none;
+}
+
+hr{
+	width: 105%;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-left:  -10px;
+}
+
+#centermini{
+	text-align: center;
+	width: 100%;
+	height: 89px;
+	border-bottom: black 15px solid;
+}
+
+#centermini p{
+	width: 200px;
+	white-space: normal;
+	margin: auto;margin-top: -80px;
+	font-family: 'Kavoon', Georgia,serif;
+	color: white;
+}
+
+#menu, #stats, #menutag, #statstag{
+	background-image: url("pics/chalky.png");
+}
+
+input[type=button]{
+	background-color: black;
+	border: solid 1px lightgray;
+	padding: 3px;
+	color: lightgray;
+	margin-top: 10px;
+	margin-right: 5px;
+}
+
+input[type=button]:hover{
+	color: white;
+	border-color: white;
+	cursor: pointer;
+}
+
+#menutag, #statstag{
+	width : 64px;
+	height : 24px;
+	color : #fff;
+	padding: 10px;
+	padding-left: 0px;
+	padding-right: 0px;
+	font-family: 'Kavoon', Georgia,serif;
+	text-align: center;
+	font-size: 18px;
+	cursor: pointer;
+	border: #4d4d4d solid 1px;
+	border-top: none;
+	border-left: none;
+	box-shadow: 0px 0px 3px #666 inset,0px 0px 4px #000;
+}
+
+#statstag{
+	border-bottom: none;
+}
+
+#storebar{
+	width: 100%;
+	height: 60px;
+}
+
+#storebar li{
+	float: left;
+	list-style-type: none;
+	width: 55px;
+	height: 55px;
+	border: brown solid 5px;
+	background-color: black;
+	cursor: pointer;
+}
+
+#storebar li:hover{
+	border-color: blue;
+}
+
+#shopBar{
+	background-color: red;
+	width: 100%;
+	margin-top: 5px;
+}
+
+.item{
+	background-color:#f1f1f1;
+	border: solid darkgrey 10px;
+	border-style: ridge;
+	padding: 5px;
+	box-shadow: 2px 2px 5px black; 
+	white-space: normal;
+	cursor: pointer;
+	height: 50px;
+	font-family: 'Kavoon', Georgia,serif;
+	font-size: 22px;
+	color: #e0e0e0;
+	text-shadow: 0px 0px 4px #000;
+	cursor: pointer;
+}
+
+.item ul{
+	display: none;
+	width: 200px;
+}
+
+.item:hover ul{
+	background-image: url("pics/chalky.png");
+	list-style: none;
+	height: 50px;
+	width: 300px;
+	display: inline-block;
+	position: absolute;
+	margin-top: -5px;
+	margin-left: -350px;
+	padding: 12px;
+	padding-bottom: 15px;
+	border: green solid 1px;
+	font-size: 12px;
+	color: #808080;
+}
+
+.item:hover ul p{
+	font-family:Arial,Helvetica,sans-serif;
+	font-weight: bold;
+	color: white;
+	font-size: 14px;
+}
+
+#xtag{
+	color: lightgrey;
+	font-size: 18px;
+	cursor: pointer;
+	float: right;
+	width: 10px;
+}
+
+#xtag:hover{
+	color: white;
+}

@@ -1,0 +1,103 @@
+import javax.swing.*;
+
+import java.awt.event.*;
+import java.awt.*;
+import java.util.*;
+
+public class Scores implements ActionListener {
+
+	
+	private ArrayList<Integer> scores; //because we don't know how many scores we'll have
+	private int numberOfScores=0;
+	private double avg = 0;
+	private int best = 0;
+	
+	private JFrame frame;
+	
+	private JLabel tScore, nScore, aScore, bScore;
+	private JTextField testScore, numberScore, avgScore, bestScore;
+	
+	private JButton enter,clear;
+	
+	public Scores() {
+	scores = new ArrayList<Integer>(); //instantiate
+	
+	frame = new JFrame("Test Scores");
+		tScore = new JLabel("Test score");
+		nScore = new JLabel("Number of score");
+		aScore = new JLabel("Average score");
+		bScore = new JLabel("Best score");
+		
+		testScore = new JTextField("0");
+		numberScore = new JTextField("0");
+		avgScore = new JTextField("0");
+		bestScore = new JTextField("0");
+		
+		enter = new JButton("Enter Score");
+			enter.addActionListener(this);
+			enter.setActionCommand("enter");
+		clear = new JButton("Clear");
+			clear.addActionListener(this);
+			clear.setActionCommand("clear");
+			
+	frame.add(tScore); frame.add(testScore);//the usual [LABEL] [FIELD] layout I much prefer
+	frame.add(nScore); frame.add(numberScore);
+	frame.add(aScore); frame.add(avgScore);
+	frame.add(bScore); frame.add(bestScore);
+	
+	frame.add(enter);
+	frame.add(clear);
+	
+	frame.setLayout( new GridLayout(5,2 ) );	
+	frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
+	frame.setSize(300,300);
+	frame.pack();//makes things  a nice size or something
+	frame.setVisible(true);	
+	}
+	public static void main(String[] args) {
+		new Scores();
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if (e.getActionCommand().equals("enter")) {
+			this.addScore( testScore.getText() ); //When they hit enter, let another function handle it
+		} else if (e.getActionCommand().equals("clear")) {
+			scores.clear();//Remember, scores is an ArrayList
+			avg = 0;
+			best = 0;
+			numberOfScores = 0;
+			//We clear all values and let the other functions change the display
+		}
+		
+		this.compute(); //Wrap up all the calculations into one function
+		
+		//Everything below this merely updates the screen to reflect the values we have
+		numberScore.setText("" + numberOfScores);
+		avgScore.setText("" + avg);
+		bestScore.setText("" + best);
+	}
+	
+	private void addScore( String score) {//This function increasing our count of datasets (number of scores
+		numberOfScores++;
+		scores.add(Integer.parseInt(score)); // and then adds the new scores, parsed as an int
+	}
+	
+	private void compute() {
+		//Find the average score
+		double sum = 0.0;
+		for (int score : scores) {
+			sum += score;
+		}
+		avg = sum / numberOfScores; //Average is the sum divided by the number of data sets
+		
+		//find the best
+		for (int score : scores) {
+			best = (best > score) ? best : score; //This is a ternary statement
+			//It reads: If best is > score, best is equal to best, otherwise it is equal to score
+		}
+		
+	}
+	
+
+}

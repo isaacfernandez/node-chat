@@ -1,0 +1,15 @@
+{
+  "name": "big_brother_chatlogger",
+  "version": "1.0.0",
+  "main": "big_brother.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node big_brother.js"
+  },
+   "dependencies": {
+    "socket.io-client": "0.9.6",
+	"mysql" : "*"
+  },
+  "author": "Isaac Fernandez",
+  "license": "MIT"
+}
