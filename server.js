@@ -2,7 +2,10 @@ var io = require('socket.io'),
   connect = require('connect'),
   chatter = require('chatter');
 
-var app = connect().use(connect.static(__dirname + '/public')).listen(3000);
+ var port = process.env.OPENSHIFT_INTERNAL_PORT || 8080;
+ var ipadd = process.env.OPENSHIFT_INTERNAL_IP || "127.0.0.1";
+
+var app = connect().use(connect.static(__dirname + '/public')).listen(ipadd, port);
 var chat_room = io.listen(app);
 
 chatter.set_sockets(chat_room.sockets);
